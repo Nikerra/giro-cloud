@@ -1,9 +1,11 @@
 package Giros.Controller;
 
 import Giros.dao.Entity.GiroOrder;
+import jakarta.validation.Valid;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +24,12 @@ public class OrderController {
     }
 
     @PostMapping
-    public String processOrder(GiroOrder giroOrder, SessionStatus sessionStatus) {
+    public String processOrder(@Valid GiroOrder giroOrder, Errors errors,SessionStatus sessionStatus) {
+
+        if (errors.hasErrors()) {
+            return "orderForm";
+        }
+
         log.info("Order submitted: {}", giroOrder);
         sessionStatus.setComplete();
 

@@ -4,10 +4,12 @@ import Giros.dao.Entity.Giro;
 import Giros.dao.Entity.GiroOrder;
 import Giros.dao.Entity.Ingredient;
 import Giros.dao.Entity.Ingredient.Type;
+import jakarta.validation.Valid;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
@@ -58,7 +60,12 @@ public class DesignGiroController {
     }
 
     @PostMapping
-    public String processGiro(Giro giro, @ModelAttribute GiroOrder giroOrder) {
+    public String processGiro(@Valid Giro giro, Errors errors, @ModelAttribute GiroOrder giroOrder) {
+
+        if (errors.hasErrors()) {
+            return "design";
+        }
+
         giroOrder.addGiro(giro);
         log.info("Processing giro: {}", giro);
 
