@@ -8,3 +8,8 @@ spring:
   datasource:
     generate-unique-name: false
     name: girocloud
+  jpa:
+    show-sql: false
+    defer-datasource-initialization: true
+  h2:
+    console.enabled: true
