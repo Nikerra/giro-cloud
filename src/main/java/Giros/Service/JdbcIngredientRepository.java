@@ -1,7 +1,7 @@
 package Giros.Service;
 
 import Giros.dao.Entity.Ingredient;
-import Giros.dao.Repo.IngredientRepository;
+import Giros.dao.Repository.IngredientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;

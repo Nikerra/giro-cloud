@@ -4,7 +4,7 @@ import Giros.dao.Entity.Giro;
 import Giros.dao.Entity.GiroOrder;
 import Giros.dao.Entity.Ingredient;
 import Giros.dao.Entity.Ingredient.Type;
-import Giros.dao.Repo.IngredientRepository;
+import Giros.dao.Repository.IngredientRepository;
 import jakarta.validation.Valid;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;

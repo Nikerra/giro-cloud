@@ -1,4 +1,4 @@
-package Giros.dao.Repo;
+package Giros.dao.Repository;
 
 import Giros.dao.Entity.Ingredient;
 

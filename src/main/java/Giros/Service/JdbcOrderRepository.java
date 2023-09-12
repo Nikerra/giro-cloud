@@ -2,8 +2,8 @@ package Giros.Service;
 
 import Giros.dao.Entity.Giro;
 import Giros.dao.Entity.GiroOrder;
-import Giros.dao.Entity.IngredientRef;
-import Giros.dao.Repo.OrderRepository;
+import Giros.dao.Entity.Ingredient;
+import Giros.dao.Repository.OrderRepository;
 import org.springframework.asm.Type;
 import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.jdbc.core.PreparedStatementCreator;
@@ -57,7 +57,7 @@ public class JdbcOrderRepository implements OrderRepository {
         order.setId(orderId);
 
         List<Giro> giros = order.getGiros();
-        int i =0;
+        int i = 0;
         for (Giro giro : giros) {
             saveGiro(orderId, i++, giro);
         }
@@ -92,13 +92,13 @@ public class JdbcOrderRepository implements OrderRepository {
         return giroId;
     }
 
-    private void saveIngredientRefs(long giroId, List<IngredientRef> ingredientRefs) {
+    private void saveIngredientRefs(long giroId, List<Ingredient> ingredientRefs) {
         int key = 0;
-        for (IngredientRef ingredientRef : ingredientRefs) {
+        for (Ingredient ingredientRef : ingredientRefs) {
             jdbcOperations.update(
                     "insert into Ingredient_Ref (ingredient, giro, giro_key) " +
                             "values (?,?,?)",
-                    ingredientRef.getIngredient(), giroId, key++);
+                    ingredientRef.getId(), giroId, key++);
         }
     }
 }

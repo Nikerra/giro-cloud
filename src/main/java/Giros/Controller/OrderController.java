@@ -1,8 +1,8 @@
 package Giros.Controller;
 
 import Giros.dao.Entity.GiroOrder;
+import Giros.dao.Repository.OrderRepository;
 import jakarta.validation.Valid;
-import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
@@ -18,19 +18,26 @@ import org.springframework.web.bind.support.SessionStatus;
 @SessionAttributes("giroOrder")
 public class OrderController {
 
+    private OrderRepository orderRepository;
+
+    public OrderController(OrderRepository orderRepository) {
+        this.orderRepository = orderRepository;
+    }
+
     @GetMapping("/current")
     public String orderForm() {
         return "orderForm";
     }
 
     @PostMapping
-    public String processOrder(@Valid GiroOrder giroOrder, Errors errors,SessionStatus sessionStatus) {
+    public String processOrder(@Valid GiroOrder giroOrder, Errors errors,
+                                SessionStatus sessionStatus) {
 
         if (errors.hasErrors()) {
             return "orderForm";
         }
 
-        log.info("Order submitted: {}", giroOrder);
+        orderRepository.save(giroOrder);
         sessionStatus.setComplete();
 
         return "redirect:/";
