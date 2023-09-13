@@ -2,10 +2,10 @@ package Giros.Controller;
 
 import Giros.dao.Entity.Giro;
 import Giros.dao.Entity.GiroOrder;
+
 import Giros.dao.Entity.Ingredient;
 import Giros.dao.Entity.Ingredient.Type;
 import Giros.dao.Repository.IngredientRepository;
-import jakarta.validation.Valid;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,7 +59,7 @@ public class DesignGiroController {
     }
 
     @PostMapping
-    public String processGiro(@Valid Giro giro, Errors errors, @ModelAttribute GiroOrder giroOrder) {
+    public String processGiro(Giro giro, Errors errors, @ModelAttribute GiroOrder giroOrder) {
 
         if (errors.hasErrors()) {
             return "design";

@@ -3,5 +3,7 @@ package Giros.dao.Repository;
 import Giros.dao.Entity.GiroOrder;
 import org.springframework.data.repository.CrudRepository;
 
-public interface OrderRepository extends CrudRepository<GiroOrder, Long> {
+import java.util.UUID;
+
+public interface OrderRepository extends CrudRepository<GiroOrder, UUID> {
 }
