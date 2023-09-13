@@ -1,7 +1,7 @@
 package Giros.dao.Repository;
 
 import Giros.dao.Entity.GiroOrder;
+import org.springframework.data.repository.CrudRepository;
 
-public interface OrderRepository {
-    GiroOrder save(GiroOrder order);
+public interface OrderRepository extends CrudRepository<GiroOrder, Long> {
 }

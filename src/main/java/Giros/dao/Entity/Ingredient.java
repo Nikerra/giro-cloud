@@ -1,13 +1,20 @@
 package Giros.dao.Entity;
 
-import lombok.Data;
-
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.*;
 
 @Data
-public class Ingredient {
+@Entity
+@NoArgsConstructor(force = true)
+@RequiredArgsConstructor
+public class Ingredient{
 
+    @Id
     private final String id;
+
     private final String name;
+
     private final Type type;
 
 
