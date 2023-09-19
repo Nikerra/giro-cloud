@@ -25,6 +25,19 @@ create table if not exists Ingredient (
     name varchar(25) not null,
     type varchar(10) not null);
 
+
+create table if not exists users (
+    id identity,
+    username varchar,
+    password varchar,
+    fullname varchar,
+    street varchar,
+    city varchar,
+    phonenumder varchar);
+insert into users (username, password, fullname, street, city,phonenumder)
+values ('admin','$2a$12$WA/Xd/DU/VaIkopWmF61xelxAIFPNka13EWeE.UEvntR2Zs1eDKr6',
+                                'admin', 'lenina', 'pyatigorsk','88008008080');
+
 alter table Giro
     add foreign key (giro_order) references  Giro_Order(id);
 

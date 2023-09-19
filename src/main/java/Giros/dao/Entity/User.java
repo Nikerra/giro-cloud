@@ -1,9 +1,6 @@
 package Giros.dao.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,6 +14,7 @@ import java.util.Collection;
 
 @Data
 @Entity
+@Table(name = "users")
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 @RequiredArgsConstructor
 public class User implements UserDetails {
@@ -32,6 +30,8 @@ public class User implements UserDetails {
     private final String fullName;
     private final String street;
     private final String city;
+
+    @Column(name = "phonenumber")
     private final String phoneNumber;
 
     @Override

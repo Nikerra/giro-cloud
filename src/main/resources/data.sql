@@ -23,3 +23,5 @@ insert into Ingredient(id,name,type)
                     values ( 'SOCR', 'Sour Cream', 'SAUCE');
 insert into Ingredient(id,name,type)
                     values ( 'TZSA', 'Tzatziki sauce', 'SAUCE');
+
+delete from users;
