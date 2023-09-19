@@ -5,10 +5,25 @@
     <meta charset="UTF-8">
     <title>Giro Cloud</title>
     <link rel="stylesheet" th:href="@{/css/style.css}" />
+
+    <style>
+        html {
+            background-image: url(/images/GiroCloud.png);
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            color: black;
+        }
+    </style>
+
 </head>
 <body>
     <h1>Design your giro!</h1>
-    <img th:src="@{/images/GiroCloud.png}"/>
+<!--    <img th:src="@{/images/GiroCloud.png}"/>-->
 
     <form method="post" th:object="${giro}">
         <div class="grid">
