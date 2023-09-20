@@ -2,10 +2,8 @@ package Giros.Configuration;
 
 import Giros.dao.Entity.User;
 import Giros.dao.Repository.UserRepository;
-import jakarta.servlet.DispatcherType;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -13,9 +11,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.servlet.util.matcher.MvcRequestMatcher;
-import org.springframework.security.web.util.matcher.AndRequestMatcher;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+
+
 
 @Configuration
 public class SecurityConfig {
@@ -49,8 +47,15 @@ public class SecurityConfig {
                                 .requestMatchers(new AntPathRequestMatcher("/*.png")).permitAll()
                                 .anyRequest().authenticated()
                 )
-                .formLogin(Customizer.withDefaults());
+                .formLogin((form) -> form
+                    .loginPage("/login")
+                    .loginProcessingUrl("/authenticate")
+                    .usernameParameter("user")
+                    .passwordParameter("pwd")
+                    .defaultSuccessUrl("/design")
+                    .permitAll()
+                )
+                .logout(Customizer.withDefaults());
         return http.build();
     }
-
 }
