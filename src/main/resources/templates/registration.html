@@ -45,7 +45,14 @@
         <label for="phone">Phone: </label>
         <input type="text" id="phone"/><br/>
 
+        <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
+
         <input type="submit" value="Register">
+    </form>
+
+    <hr/>
+    <form method="post" th:action="@{/logout}" >
+        <input type="submit" value="Logout"/>
     </form>
 </body>
 </html>

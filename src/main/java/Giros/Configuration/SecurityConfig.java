@@ -41,6 +41,7 @@ public class SecurityConfig {
                         (authorize) -> authorize
                                 .requestMatchers(new AntPathRequestMatcher("/design", "/orders")).hasRole("ADMIN")
                                 .requestMatchers(new AntPathRequestMatcher("/")).permitAll()
+                                .requestMatchers(new AntPathRequestMatcher("/register")).permitAll()
                                 .requestMatchers(new AntPathRequestMatcher("/images/**")).permitAll()
                                 .requestMatchers(new AntPathRequestMatcher("/*.css")).permitAll()
                                 .requestMatchers(new AntPathRequestMatcher("/*.jpg")).permitAll()
@@ -49,13 +50,11 @@ public class SecurityConfig {
                 )
                 .formLogin((form) -> form
                     .loginPage("/login")
-                    .loginProcessingUrl("/authenticate")
-                    .usernameParameter("user")
-                    .passwordParameter("pwd")
-                    .defaultSuccessUrl("/design")
+                    .defaultSuccessUrl("/")
                     .permitAll()
                 )
-                .logout(Customizer.withDefaults());
+                .logout((logout) -> logout
+                        .logoutSuccessUrl("/"));
         return http.build();
     }
 }

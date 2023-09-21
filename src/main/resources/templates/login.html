@@ -36,7 +36,14 @@
         <label for="password">Password: </label>
         <input type="password" name="password" id="password" /><br/>
 
+        <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
+
         <input type="submit" value="Login"/>
+    </form>
+
+    <hr/>
+    <form method="post" th:action="@{/logout}" >
+        <input type="submit" value="Logout"/>
     </form>
 </body>
 </html>
