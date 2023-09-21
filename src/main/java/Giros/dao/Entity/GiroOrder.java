@@ -15,6 +15,7 @@ import java.util.List;
 
 @Data
 @Entity
+@Table(name = "Giro_Order")
 public class GiroOrder implements Serializable {
 
     private static final long serialVersionUID =1L;

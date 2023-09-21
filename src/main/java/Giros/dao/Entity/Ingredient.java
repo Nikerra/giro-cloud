@@ -2,12 +2,14 @@ package Giros.dao.Entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.*;
 
 @Data
 @Entity
 @NoArgsConstructor(force = true)
 @RequiredArgsConstructor
+@Table(name = "ingredient")
 public class Ingredient{
 
     @Id

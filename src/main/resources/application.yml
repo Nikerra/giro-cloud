@@ -1,16 +1,22 @@
 server:
   port: 8081
 
-
 spring:
+  datasource:
+    url: jdbc:postgresql://localhost:8082/postgres
+    username: postgres
+    password: 123456
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    show-sql: true
+  properties:
+    hibernate:
+      format_sql: true
+
   thymeleaf:
     cache: false
-  datasource:
-    generate-unique-name: false
-    name: girocloud
-#    url: jdbc:h2:mem:girocloud;DB_CLOSE_ON_EXIT=FALSE
-#  jpa:
-#    show-sql: false
-#    defer-datasource-initialization: true
-#  h2:
-#    console.enabled: true
+    prefix: classpath:/templates/
+    suffix: .html
+    check-template-location: true
+  main:
+    allow-circular-references: true
