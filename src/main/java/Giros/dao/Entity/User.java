@@ -15,7 +15,7 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "users")
+@Table(name = "users",schema = "giro-cloud")
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 @RequiredArgsConstructor
 public class User implements UserDetails {
@@ -26,10 +26,19 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(name = "username")
     private final String username;
+
+    @Column(name = "password")
     private final String password;
+
+    @Column(name = "fullname")
     private final String fullName;
+
+    @Column(name = "street")
     private final String street;
+
+    @Column(name = "city")
     private final String city;
 
     @Column(name = "phonenumber")
