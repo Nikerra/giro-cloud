@@ -25,8 +25,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests(
                         (authorize) -> authorize
                                 .requestMatchers(new AntPathRequestMatcher("/design", "/orders")).hasRole("ADMIN")
-                                .requestMatchers(HttpMethod.POST, "/design").hasRole("ADMIN")
-                                .requestMatchers(HttpMethod.POST, "/orders").hasRole("ADMIN")
+//                                .requestMatchers(HttpMethod.POST, "/design").hasRole("ADMIN")
+//                                .requestMatchers(HttpMethod.POST, "/orders").hasRole("ADMIN")
                                 .requestMatchers(new AntPathRequestMatcher("/")).permitAll()
                                 .requestMatchers(new AntPathRequestMatcher("/register")).permitAll()
                                 .requestMatchers(new AntPathRequestMatcher("/images/**")).permitAll()

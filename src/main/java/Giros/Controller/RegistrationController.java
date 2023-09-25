@@ -2,7 +2,6 @@ package Giros.Controller;
 
 import Giros.dao.Entity.RegistrationForm;
 import Giros.dao.Repository.UserRepository;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +14,6 @@ public class RegistrationController {
 
     private UserRepository userRepository;
     private PasswordEncoder passwordEncoder;
-
     public RegistrationController(
             UserRepository userRepository, PasswordEncoder passwordEnc) {
         this.userRepository = userRepository;

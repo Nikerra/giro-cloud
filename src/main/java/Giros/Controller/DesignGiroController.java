@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +21,7 @@ import java.util.stream.Collectors;
 @Slf4j
 @Data
 @Controller
-@RequestMapping("/design")
+@RequestMapping()
 @SessionAttributes("giroOrder")
 public class DesignGiroController {
 
@@ -53,13 +54,13 @@ public class DesignGiroController {
         return new Giro();
     }
 
-    @GetMapping
+    @GetMapping("/design")
     public String showDesignForm(){
         return "design";
     }
 
-    @PostMapping
-    public String processGiro(Giro giro, Errors errors, @ModelAttribute GiroOrder giroOrder) {
+    @PostMapping("/design")
+    public String processGiro(Giro giro, Errors errors, @ModelAttribute GiroOrder giroOrder, BindingResult bindingResult) {
 
         if (errors.hasErrors()) {
             return "design";
