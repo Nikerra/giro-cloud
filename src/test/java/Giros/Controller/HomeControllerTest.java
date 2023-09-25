@@ -1,5 +1,6 @@
 package Giros.Controller;
 
+import Giros.Configuration.WebGiroConfig;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -9,7 +10,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@WebMvcTest(HomeController.class)
+@WebMvcTest(WebGiroConfig.class)
 public class HomeControllerTest {
 
     @Autowired
