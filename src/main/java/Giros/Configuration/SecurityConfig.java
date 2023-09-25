@@ -2,6 +2,7 @@ package Giros.Configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -24,6 +25,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests(
                         (authorize) -> authorize
                                 .requestMatchers(new AntPathRequestMatcher("/design", "/orders")).hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.POST, "/design").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.POST, "/orders").hasRole("ADMIN")
                                 .requestMatchers(new AntPathRequestMatcher("/")).permitAll()
                                 .requestMatchers(new AntPathRequestMatcher("/register")).permitAll()
                                 .requestMatchers(new AntPathRequestMatcher("/images/**")).permitAll()

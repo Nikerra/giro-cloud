@@ -1,6 +1,12 @@
 server:
   port: 8081
 
+logging:
+  level:
+    org.springframework.web.+:
+      TRACE
+
+
 spring:
   datasource:
     url: jdbc:postgresql://localhost:8082/postgres

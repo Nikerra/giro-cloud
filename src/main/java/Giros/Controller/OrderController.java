@@ -29,7 +29,7 @@ public class OrderController {
         return "orderForm";
     }
 
-    @PostMapping
+    @PostMapping("/current")
     public String processOrder(@Valid GiroOrder giroOrder, Errors errors,
                                 SessionStatus sessionStatus) {
 

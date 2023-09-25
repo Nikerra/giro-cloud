@@ -15,7 +15,7 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "Giro_Order")
+@Table(name = "Giro_Order", schema = "giro-cloud")
 public class GiroOrder implements Serializable {
 
     private static final long serialVersionUID =1L;
