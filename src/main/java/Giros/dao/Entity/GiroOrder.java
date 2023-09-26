@@ -21,9 +21,10 @@ public class GiroOrder implements Serializable {
     private static final long serialVersionUID =1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "placed_at")
     private Date placedAt;
 
 
@@ -43,6 +44,7 @@ public class GiroOrder implements Serializable {
     private String ccExpiration;
 
     @Digits(integer = 3,fraction = 0, message = "Invalid CVV number")
+    @Column(name = "cc_cvv")
     private String ccCVV;
 
     @OneToMany(cascade = CascadeType.ALL)
