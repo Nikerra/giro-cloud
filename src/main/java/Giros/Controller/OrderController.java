@@ -36,7 +36,7 @@ public class OrderController {
         if (errors.hasErrors()) {
             return "orderForm";
         }
-
+        System.out.println("Giro order=" + giroOrder);
         orderRepository.save(giroOrder);
         sessionStatus.setComplete();
 
