@@ -18,6 +18,16 @@ create table if not exists Giro (
     giro_order_key bigint not null,
     created_at timestamp);
 
+CREATE TABLE "giro-cloud".giro_order_giros (
+    id integer NOT NULL GENERATED ALWAYS AS IDENTITY,
+    giro_id bigint NOT NULL,
+    giro_order_id bigint NOT NULL,
+    CONSTRAINT giro_order_giros_pk PRIMARY KEY (id),
+    CONSTRAINT giro_order_giros_fk FOREIGN KEY (giro_id) REFERENCES "giro-cloud".giro(id),
+    CONSTRAINT giro_order_giros_fk_1 FOREIGN KEY (giro_order_id) REFERENCES "giro-cloud".giro_order(id)
+);
+
+
 create table if not exists Ingredient_Ref (
     ingredient varchar(4) not null primary key,
     giro bigint not null,

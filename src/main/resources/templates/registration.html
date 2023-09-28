@@ -25,25 +25,25 @@
     <form method="post" th:action="@{/register}" id="registerForm">
 
         <label for="username">Username: </label>
-        <input type="text" id="username"/><br/>
+        <input type="text" name="username"/><br/>
 
         <label for="password">Password: </label>
-        <input type="password" id="password"/><br/>
+        <input type="password" name="password"/><br/>
 
         <label for="confirm">Confirm password: </label>
-        <input type="password" id="confirm"/><br/>
+        <input type="password" name="confirm"/><br/>
 
         <label for="fullname">Full name: </label>
-        <input type="text" id="fullname"/><br/>
+        <input type="text" name="fullname"/><br/>
 
         <label for="street">Street: </label>
-        <input type="text" id="street"/><br/>
+        <input type="text" name="street"/><br/>
 
         <label for="city">City: </label>
-        <input type="text" id="city"/><br/>
+        <input type="text" name="city"/><br/>
 
         <label for="phone">Phone: </label>
-        <input type="text" id="phone"/><br/>
+        <input type="text" name="phone"/><br/>
 
         <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
 
