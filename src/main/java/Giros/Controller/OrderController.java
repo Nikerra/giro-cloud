@@ -37,6 +37,8 @@ public class OrderController {
             return "orderForm";
         }
         System.out.println("Giro order=" + giroOrder);
+        System.out.println("Giro order id=" + giroOrder.getId());
+        System.out.println("Giro id=" + giroOrder.getGiros().get(0));
         orderRepository.save(giroOrder);
         sessionStatus.setComplete();
 

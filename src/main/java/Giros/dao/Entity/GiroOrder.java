@@ -21,38 +21,38 @@ public class GiroOrder implements Serializable {
     private static final long serialVersionUID =1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    @Column(name = "placed_at")
+    @JoinColumn(name = "placed_at")
     private Date placedAt;
 
 
     @NotBlank(message="Delivery name is required")
-    @Column(name = "delivery_name")
+    @JoinColumn(name = "delivery_name")
     private String deliveryName;
 
     @NotBlank(message="Street is required")
-    @Column(name = "delivery_street")
+    @JoinColumn(name = "delivery_street")
     private String deliveryStreet;
 
     @NotBlank(message="City is required")
-    @Column(name = "delivery_city")
+    @JoinColumn(name = "delivery_city")
     private String deliveryCity;
 
     @CreditCardNumber(message = "Not a valid credit card number")
-    @Column(name = "cc_number")
+    @JoinColumn(name = "cc_number")
     private String ccNumber;
 
     @Pattern(regexp = "^(0[1-9]|1[0-2])([\\/])([2-9][0-9])$", message = "Must be formatted MM/YY")
-    @Column(name = "cc_expiration")
+    @JoinColumn(name = "cc_expiration")
     private String ccExpiration;
 
     @Digits(integer = 3,fraction = 0, message = "Invalid CVV number")
-    @Column(name = "cc_cvv")
+    @JoinColumn(name = "cccvv")
     private String ccCVV;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, targetEntity = Giro.class)
     private List<Giro> giros = new ArrayList<>();
 
     public void addGiro(Giro giro) {

@@ -7,7 +7,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "role")
+@Table(name = "role", schema = "giro-cloud")
 public class Role {
 
     @Id

@@ -15,20 +15,19 @@ import java.util.List;
 public class Giro {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    @Column(name = "created_at")
+    @JoinColumn(name = "create_at")
     private Date createAt = new Date();
 
     @NotNull
     @Size(min=5, message = "Name must be at least 5 characters long")
-    @Column(name = "name")
+    @JoinColumn(name = "name")
     private String name;
 
     @Size(min=1, message = "You must choose at least 1 ingredient")
     @ManyToMany()
-
     private List<Ingredient> ingredients = new ArrayList<>();
 
     public void addIngredient(Ingredient ingredient) {
