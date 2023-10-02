@@ -15,7 +15,7 @@ import java.util.List;
 public class Giro {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @JoinColumn(name = "create_at")
