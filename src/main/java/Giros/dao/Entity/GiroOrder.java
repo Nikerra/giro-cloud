@@ -15,13 +15,13 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "Giro_Order", schema = "giro-cloud")
+@Table(name = "giro_order", schema = "giro-cloud")
 public class GiroOrder implements Serializable {
 
     private static final long serialVersionUID =1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @JoinColumn(name = "placed_at")

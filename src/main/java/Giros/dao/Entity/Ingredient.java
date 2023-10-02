@@ -5,10 +5,10 @@ import lombok.*;
 
 @Data
 @Entity
-@NoArgsConstructor(force = true)
-@RequiredArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
+@AllArgsConstructor
 @Table(name = "ingredient", schema = "giro-cloud")
-public class Ingredient{
+public class Ingredient {
 
     @Id
     private final String id;

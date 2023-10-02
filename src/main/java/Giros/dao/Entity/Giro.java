@@ -11,15 +11,15 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "Giro", schema = "giro-cloud")
+@Table(name = "giro", schema = "giro-cloud")
 public class Giro {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JoinColumn(name = "create_at")
-    private Date createAt = new Date();
+    @JoinColumn(name = "created_at")
+    private Date createdAt = new Date();
 
     @NotNull
     @Size(min=5, message = "Name must be at least 5 characters long")
