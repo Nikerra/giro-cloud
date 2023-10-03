@@ -6,6 +6,10 @@ logging:
     org.springframework.web.+:
       TRACE
 
+giro:
+  orders:
+    pageSize: 10
+
 
 spring:
   datasource:
